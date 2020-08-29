@@ -30,12 +30,10 @@ jobs:
         no
         EOF
         echo $RESOURSE_ID
-        ./IBM_Cloud_CLI/ibmcloud cf install        
-        ./IBM_Cloud_CLI/ibmcloud cf login <<EOF
+        ./IBM_Cloud_CLI/cf api https://api.us-south.cf.cloud.ibm.com        
+        ./IBM_Cloud_CLI/cf login <<EOF
         $IBM_ACCOUNT
         $REGION_NUM
         no
         EOF
-        ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
-        ./IBM_Cloud_CLI/ibmcloud target --cf        
-        ./IBM_Cloud_CLI/ibmcloud cf restart ibm-cloud-app-v2
+        ./IBM_Cloud_CLI/cf restart ibm-cloud-app-v2
